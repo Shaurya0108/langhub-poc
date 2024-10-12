@@ -1,0 +1,411 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  display: block;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* App container */
+#app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styles */
+#app-header {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#app-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+#header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#button-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Main content area */
+#main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* .content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#new-repos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  #new-repos {
+    flex-direction: row;
+  }
+
+  #github-repos {
+    width: 50%;
+  }
+
+  #upload-repo {
+    width: 50%;
+  }
+} */
+
+.content-section {
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.content-section h2 {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #444;
+}
+
+/* Add styles for the separator
+.section-separator {
+  height: 1px;
+  background-color: #444;
+  margin: 1rem 0;
+} */
+
+/* GitHub repos section */
+#github-repos {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+#github-repos .dropdown-header {
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+}
+
+.dropdown-header {
+  padding: 10px;
+  background-color: #222;
+  cursor: pointer;
+}
+
+.repo-search-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.repo-search-input[style*="display: none"] {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.repo-search-input::placeholder {
+  color: #888;
+}
+
+.repo-search-input:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.custom-dropdown {
+  width: 100%;
+  max-width: none;
+  border: 2px solid #444;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.dropdown-header {
+  padding: 10px;
+  background-color: #222;
+  cursor: pointer;
+  border-bottom: 1px solid #444;
+}
+
+.dropdown-list {
+  max-height: 300px;
+  overflow-y: auto;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.dropdown-list[style*="display: none"] {
+  max-height: 0;
+}
+
+.dropdown-list li {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+}
+
+.dropdown-list li:hover {
+  background-color: #2a2a2a;
+}
+
+.repo-visibility {
+  float: right;
+  font-size: 0.8em;
+  color: #aaa;
+}
+
+.repo-description {
+  font-size: 0.9em;
+  color: #ddd;
+}
+
+.repo-language {
+  font-size: 0.8em;
+  color: #aaa;
+}
+
+/* Upload repo section */
+#upload-repo form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#upload-button, #submit-button {
+  width: 100%;
+}
+
+#file-name-display {
+  word-break: break-all;
+}
+
+/* Past repos section */
+#past-repos {
+  display: flex;
+  flex-direction: column;
+}
+
+#past-repos p {
+  color: #888;
+}
+
+/* Utility classes */
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .content-container {
+    flex-direction: column;
+  }
+
+  .space-x-8 > * + * {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #header-right {
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #button-container {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+#workspace-container {
+  position: fixed;
+  top: 70px; /* Adjust this value to match your header height */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1e1e1e;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Add this to prevent scrolling issues */
+}
+
+/* Ensure the main content is hidden when workspace is open */
+body.workspace-open #main-content {
+  display: none;
+}
+
+/* Adjust the Workspace component styles */
+.h-full {
+  height: 100%;
+}
+
+.bg-gray-900 {
+  background-color: #111827;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.flex {
+  display: flex;
+}
+
+.bg-gray-800 {
+  background-color: #1f2937;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Ensure the editor takes full height */
+.flex-grow {
+  flex-grow: 1;
+  min-height: 0; /* Add this to allow flex-grow to work properly */
+}

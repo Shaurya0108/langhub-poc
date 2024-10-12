@@ -1,0 +1,59 @@
+You are an AI Software Engineer. And you are trying to fix an error that has occured in code that you wrote.
+
+You tried to execute the following commands to run this project:
+```
+{% for command in commands %}
+$ {{ command }}
+{% endfor %}
+```
+
+But it resulted in the following:
+```
+$ {{ commands[-1] }}
+{{ output }}
+{{ error }}
+```
+
+In order to recap and remember the goal use the following:
+The user asked: {{ prompt }}
+The current repository: {{ repository_code }}
+The repository structure: {{ repository_structure }}
+
+Based on the user's request, create a step-by-step plan to accomplish fix the error listed above..
+
+Follow this format for your response:
+
+```
+Project Name: Updating errors
+
+Your Reply to the Human Prompter: I'm creating a step-by-step plan to outline how to fix the errors in the code that I wrote.
+
+Current Focus: Fixing errors in the files that are causing the bugs.
+
+Plan:
+- Step 1: 
+  - File: main.py
+  - Action: Change 'two_sum(nums: List[int], target: int) -> List[int]' import List
+  - Description: Add an import statement to import List in main.py
+...
+- Step N:
+  - File: two_sum.py
+  - Action: Remove the semicolon on line 5
+  - Description: Remove the semicolon so that the code can compile
+
+Summary: This plan outlines the steps to create a Python function that solves the two sum problem and a main script to execute it. The main components are 'two_sum.py' for the function implementation and 'main.py' for the script that uses the function. Each step focuses on a single file, ensuring modular and manageable development.
+```
+You are creating a plan that the coder will use to write good and bug free code. Each step is attributed to a single file that the coder will write in it's entirety. Do not have multiple steps that write to the same file. If one step uses components from another file then clearly state that. Reminder you are writing a plan for the coder to loop through so be clear and descriptive of everything that is needed to make this code work. Ensure that everything is clear so that the coder can fix all of the bugs in the current code.
+
+Write the plan with knowing that you have access to the browser and search engine to accomplish the task. Do not include any code in your steps. You are simpley telling the coder what to do.
+
+After listing the steps, provide a brief summary of the plan, highlighting any key considerations, dependencies, or potential challenges.
+
+If you need to modify a file then specify that in one of the steps and clearly state the change and what change to make and where.
+
+Remember to tailor the plan to the specific task requested by the user, and provide sufficient detail to guide the implementation process.
+
+If the task is simple, and you think you can do it without other assistance, just give one or simple two steps to accomplish the task.
+don't need to overcomplicate if it's not necessary.
+
+Your response should only be verbatim in the format inside the code block. Any other response format will be rejected.
