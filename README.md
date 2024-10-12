@@ -1,5 +1,4 @@
 # Langhub POC
-How can we fix bugs without a developer
 
 ## Get Started
 
